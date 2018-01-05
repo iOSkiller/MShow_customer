@@ -1,0 +1,34 @@
+//
+//  AliPayNeedDEF.h
+//  WeChatAndAliPayDemo
+//
+//  Created by 李政 on 15/10/21.
+//  Copyright © 2015年 Leon李政. All rights reserved.
+//
+
+#ifndef AliPayNeedDEF_h
+#define AliPayNeedDEF_h
+
+#import <AlipaySDK/AlipaySDK.h>
+//支付宝分配给开发者的应用ID
+#define AliAppID @"2017101609336068"
+//合作身份者id，以2088开头的16位纯数字
+#define AliPartnerID @"2088721838878277"
+
+//收款支付宝账号
+#define AliSellerID  @"17715257693@139.com"
+
+//商户私钥，自助生成（这个私钥需要自己手动生成，具体生成方法可以看支付宝的官方文档）
+#define AliPartnerPrivKey @"MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCAzNkiXboSuVCDgYb8pLDdGp990Gr5krJkH98M9ICeed3nOW1fEhdX6XlM9EeGiszzAZjX1aPxLAy9om7z1Vd/+Wo2criplpqG6RhSXTAvzUa6d9Qp8p1hf4J7vXh8NsH2LpQihdzWF+uoy4jZlxY1hJwcs2sPjRhzKb5PVIRlud45VmmZ4nX9p2hK59iIlSgT2E9BVAR0rWKoif4sWfKxbk3MGXP5MVq+MAUguFgzZhyDw9Tl2Eq1CoLp4dMKpkbMxswoCNJQ7lSD2EEfwZlqSE59ImJLKeZEscjj4rHa6vwsEwgTYizaMZ/Zt9LQiyQ5dFBc9frARSu7rN94OK0BAgMBAAECggEAd5AxfJJvGdSHJhyGV172g7mkFqHzvAvup71iTF9oSjSsxmlr2xYrL0Ofg8073GxaxrZT0QAUeNvAVAVGY/lGiZjZfQPP4jXY6qXVGxhAlA9FufFktS/v4sMAOKfxAbW/Ji2k+8sx7lg0PfP67KoxRqr8VDRFjSEYckdsz62QXfD0dSnIVffDOBgLy5FAVoHr5x+GgZ4VlVchkwYLJVNavZpZnPNgvaoh/updIskrXwFc3h7p9wooiW+JoNWkseriQvPXix9Z6jReGEhDZAc68UWV7/tYW7Bp8RSsdryDsV6UeKJGlW8hw2GI8Y33Ci9Xu65tVyc9/9z/kO2WyX4ocQKBgQC181+ToRVGLvVPV9b+z1k49M13VtaE8sWxgAhLhUgzAuSkpPl5PsnMqMs6Oqh7cFPr7nrqG67IcCosAyE/rhQ9CUZXhPicXBgLPLl1xFR7RW7PUfEdELHR8mZ/qtBzrLyGvAyxmNkBrCIB4hUlnN6F9apivLnG+278ADSOyAXp3QKBgQC1N/aaL6f4gLIbOTD9x0d6n6CoLzZVBaQMoV1++0B09x/wXOtqMEUpGK26oUtKcR8+UN9l2P6k48Kn/MAW6J4WyKf2TSZU9mnyWve+7gZidUlulS53a72380i3hTkQU6GX809lRVgYNDyu2Wwyn4kT/a7zbAunfvR6UIlYlQLHdQKBgExU65XdkDU/Yf6FVVbU2hOA7+nO7nQb/T/3/ILiSWXNIurHozlwU+yeK5QkI6aVez+RbtNkBbFlDOwl6/7xIuBwUahJypqeMCAWu59iXCbS/CfRspuE83SmgsWwfX7pyrWjkpe3DeMbubCcjk6XPutoIrEFh9KojOj/lQ0JcSGpAoGABZA+ReWIppxs22EaG/BuRVl5OTCZ3mpZ6vlZQXi9NdoQZPS1VYE93lEfpEcnZJWse+FHuny69Jz5cObVjt59W/21Cl67+ofGIOaiDH6KO6OWKYry7j+kh200ok24vsOShnO10EoctkGES2npZHR5ZN+460g5416GaurmDI4mk7ECgYBkbea7y27jc1RFSC1NG6DnsuxYsrNDgdjnc3qqQsXmN9rhojIDn2FOQexV/TlaknoWURnDea90q0soDghZUhK87FB5VBgy1ZB/d/VpIdbdlijJ5vqyd0N5s1R8jJCaLEqg5tBSCejtjYtGaGTd5ebwBmG9KZm7NgPv6xrGEQGB3Q=="
+
+//后台给的回调接口网址
+#define AliNotifyURL @"http://101.132.67.18:80/mshow_mobile/alipayAPP/getPayNotify"
+
+#define kAliPayURLScheme @"com.mshow.Mshow-Customer"
+
+//通知的名字及参数
+#define ALI_PAY_RESULT   @"Ali_pay_result_isSuccessed"
+#define ALIPAY_SUCCESSED    @"Ali_pay_isSuccessed"
+#define ALIPAY_FAILED       @"Ali_pay_isFailed"
+
+#endif /* AliPayNeedDEF_h */

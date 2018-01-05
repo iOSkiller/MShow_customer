@@ -1,0 +1,305 @@
+//
+//  PrefixHeader.pch
+//  Mshow_customer
+//
+//  Created by YYZ on 2017/9/27.
+//  Copyright © 2017年 YYZ. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "UIBarButtonItem+YYExtension.h"
+#import <Masonry.h>
+#import <MJExtension.h>
+#import <MJRefresh.h>
+#import <UIImageView+WebCache.h>
+#import "NSString+Common.h"
+#import "NSString+Regular.h"
+#import "YYCommonButton.h"
+#import "AppConstants.h"
+#import "MBProgressHUD.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
+#import "MacroDefine.h"
+#import "UIScrollView+YYPanBack.h"
+#import "UIImage+YYExtension.h"
+#import "IQKeyboardManager.h"
+#import "AliPayNeedDEF.h"
+#import "AESCrypt.h"
+#import "GCDThrottle.h"
+#import "YYMemoryCacheHandle.h"
+#import "YYHttpHandle.h"
+#import "YYBaseTableView.h"
+#import "UIImage+YYExtension.h"
+#import "NSLayoutConstraint+SSLayout.h"
+//#import <YYKit/YYKit.h>
+
+static NSString * const YYUserLoginSuccess = @"userLoginSuccess";
+
+static NSString * const YYReceiveNotification = @"YYReceiveNotification";
+static NSString * const YYHideKeyboardNotification = @"YYHideKeyboardNotification";
+//全局颜色
+#define YYTextColor mRGBToColor(0x333333)
+#define YYGrayTextColor mRGBToColor(0x666666)
+#define YYDiscriptionColor mRGBToColor(0x585757)
+#define YYDisableColor mRGBToColor(0xcccccc)
+#define YYGlobalColor mRGBToColor(0xf3615f)
+#define YYNaviColor mRGBToColor(0xf51e4a)
+#define YYPlaceHolderColor mRGBToColor(0xb6b6b6)
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+#define StrongSelf(strongSelf) __strong typeof(&*self)strongSelf = self;
+
+//分割线 颜色、尺寸
+#define YYSeparatorColor mRGBToColor(0xf0f0f0)
+#define YYSectionFooterColor mRGBToColor(0xfafafa)
+#define line_Width 0.5
+
+//#define homeFirstCellHeight WIN_WIDTH * 0.56
+//#define homeSecondCellHeight WIN_WIDTH * 0.43
+#define homeFirstCellHeight RELATIVE_WIDTH(434)
+#define homeSecondCellHeight RELATIVE_WIDTH(332)
+#define homeAdsHeight WIN_WIDTH * 0.7
+
+typedef NS_ENUM(NSInteger, YYAdsViewType) {
+    YYAdsViewTypeBigImage   = 5001,//大轮播
+    YYAdsViewTypeSamllImage = 5002,//小轮播
+    YYAdsViewTypeGoodsImage = 5003,//商品详情图片
+};
+
+typedef NS_ENUM(NSInteger, YYSelectChildViewDataType) {
+    YYSelectChildViewDataTypeHot,
+    YYSelectChildViewDataTypeNew,
+    YYSelectChildViewDataTypeTry,
+};
+
+typedef NS_ENUM(NSInteger, YYWalletQuestionType) {
+    YYWalletQuestionTypeBalance = 0,
+    YYWalletQuestionTypeCharge,
+    YYWalletQuestionTypeWithDraw,
+    YYWalletQuestionTypeTransferDuration,
+};
+
+typedef NS_ENUM(NSInteger, YYSubscribeSuccessViewType) {
+    YYSubscribeSuccessViewTypeWash,
+    YYSubscribeSuccessViewTypeReturnGoods,
+    YYSubscribeSuccessViewTypeReturnGoodsBySelf,
+    YYSubscribeSuccessViewTypeChangeReturnGoods,
+};
+
+typedef NS_ENUM(NSInteger, YYHomeCellType) {
+//    YYHomeCellTypeBrand,
+    YYHomeCellTypeDefault,
+    YYHomeCellTypeLabel,
+    YYHomeCellTypeShop,
+    YYHomeCellTypeHot,
+    YYHomeCellTypeNew,
+    YYHomeCellTypeTried,
+};
+
+typedef NS_ENUM(NSInteger, YYMineInfoType) {
+    YYMineInfoTypeIcon,
+    YYMineInfoTypeNickname,
+    YYMineInfoTypeLevel,
+    YYMineInfoTypeGender,
+    YYMineInfoTypePhone,
+    YYMineInfoTypeBirthday,
+    YYMineInfoTypeHeight,
+};
+
+typedef NS_ENUM(NSInteger, YYMineWardrobeViewType) {
+    YYMineWardrobeViewTypePayed,
+    YYMineWardrobeViewTypeTried,
+};
+
+typedef NS_ENUM(NSInteger, YYWashServiceType) {
+    YYWashServiceTypeCoat,
+    YYWashServiceTypeBed,
+};
+
+typedef NS_ENUM(NSInteger, YYCouponType) {
+    YYCouponTypeAvailable,
+    YYCouponTypeDisable,
+    YYCouponTypeUsed,
+};
+
+typedef NS_ENUM(NSInteger, YYPayType) {
+    YYPayTypeNone,
+    YYPayTypeAlipay,
+    YYPayTypeWeixinPay,
+};
+
+typedef NS_ENUM(NSInteger, YYMineFunctionType) {
+    YYMineFunctionTypeNone,
+    /**地址管理*/
+    YYMineFunctionTypeAddress,
+    /**邀请好友*/
+    YYMineFunctionTypeInvite,
+    /**信用评分*/
+    YYMineFunctionTypeCreditRate,
+    /**认证*/
+    YYMineFunctionTypeCertify,
+    /**客户服务*/
+    YYMineFunctionTypeCustomerServer,
+    /**衣橱*/
+    YYMineFunctionTypeWardrobe,
+    /**优惠券*/
+    YYMineFunctionTypeCoupon,
+    /**钱包*/
+    YYMineFunctionTypeWallet,
+    /**足迹*/
+    YYMineFunctionTypeHistory,
+    /**收藏*/
+    YYMineFunctionTypeCollection,
+    /**评论*/
+    YYMineFunctionTypeComments,
+    /**退换货*/
+    YYMineFunctionTypeChange,
+    /**还衣*/
+    YYMineFunctionTypeReturn,
+    /**M秀*/
+    YYMineFunctionTypeShow,
+    /**购买衣服*/
+    YYMineFunctionTypeBuy,
+    /**物流信息*/
+    YYMineFunctionTypeShowDelivery,
+    /**店铺详情*/
+    YYMineFunctionTypeShowShop,
+    /**催单*/
+    YYMineFunctionTypeRemindDeal,
+    /**确认收货*/
+    YYMineFunctionTypeConformReceipt,
+    /**取消订单*/
+    YYMineFunctionTypeCancelDeal,
+    /**删除订单*/
+    YYMineFunctionTypeDeleteDeal,
+    /**订单详情*/
+    YYMineFunctionTypeShowDealDetail,
+    /**自还*/
+    YYMineFunctionTypeReturnBySelf,
+    /**付款*/
+    YYMineFunctionTypePayDeal,
+    /**自送*/
+    YYMineFunctionTypeDeliveryBySelf,
+    /**上门取件*/
+    YYMineFunctionTypeDeliveryByPost,
+    /**确认订单*/
+    YYMineFunctionTypeSubmitDeal,
+    /**申诉*/
+    YYMineFunctionTypeAppeal,
+};
+
+typedef NS_ENUM(NSInteger, YYDealStatusType) {
+    YYDealStatusTypeAll,
+    /**待支付*/
+    YYDealStatusTypeWaitForPay,
+    /**待接单*/
+    YYDealStatusTypeWaitForTakeOrder,
+    /**待配送*/
+    YYDealStatusTypeWaitForDelivery,
+    /**待收货*/
+    YYDealStatusTypeWaitForRecieve,
+    /**待归还*/
+    YYDealStatusTypeWaitForReturn,
+    /**待评价*/
+    YYDealStatusTypeWaitForComment,
+    /**待确认*/
+    YYDealStatusTypeWaitForSubmit,
+    /**申诉中*/
+    YYDealStatusTypeInAppeal,
+    YYDealStatusTypeFinish,
+    /**已购买*/
+    YYDealStatusTypeBought,
+    /**已试穿*/
+    YYDealStatusTypeTried,
+    /**退换货*/
+    YYDealStatusTypeReturnChange,
+    
+};
+
+typedef NS_ENUM(NSInteger, YYShowViewFunctionType) {
+    YYShowViewFunctionTypeReport,
+    YYShowViewFunctionTypeFollow,
+    YYShowViewFunctionTypeComment,
+    YYShowViewFunctionTypeUpvote,
+    YYShowViewFunctionTypeShare,
+};
+
+typedef NS_ENUM(NSInteger, YYShareType) {
+    YYShareTypeNone,
+    YYShareTypeWeChat,
+    YYShareTypeQQ,
+    YYShareTypeWeibo,
+    YYShareTypeWeChatTimeline,
+    YYShareTypeAliPay,
+};
+
+typedef NS_ENUM(NSInteger, YYHomeFunctionType) {
+    YYHomeFunctionTypeNone,
+    YYHomeFunctionTypeSign,
+    YYHomeFunctionTypeCopoun,
+    YYHomeFunctionTypeVip,
+    YYHomeFunctionTypeHot,
+    YYHomeFunctionTypeNew,
+    YYHomeFunctionTypeFree,
+    YYHomeFunctionTypeWash,
+};
+
+typedef NS_ENUM(NSInteger, YYQuestionType) {
+    YYQuestionTypeBuy,
+    YYQuestionTypeDelivery,
+    YYQuestionTypeCustomerService,
+    YYQuestionTypeOther,
+};
+
+typedef NS_ENUM(NSInteger, YYScoreType) {
+    /**店铺打分*/
+    YYScoreTypeShop,
+    /**描述相符*/
+    YYScoreTypeDescription,
+    /**配送服务*/
+    YYScoreTypeDelivery,
+    /**试穿体验*/
+    YYScoreTypeTriedExperience,
+};
+
+typedef NS_ENUM(NSInteger, YYCancelReasonType) {
+    YYCancelReasonTypeNone,
+    /**不想买*/
+    YYCancelReasonTypeNotBuy,
+    /**地址错误*/
+    YYCancelReasonTypeWorroyAddress,
+    /**缺货*/
+    YYCancelReasonTypeOutOfStock,
+    /**其他原因*/
+    YYCancelReasonTypeOther,
+};
+
+typedef NS_ENUM(NSInteger, YYChangeGoodsType) {
+    YYChangeGoodsTypeNone,
+    /**退款退货*/
+    YYChangeGoodsTypeReturnAll,
+    /**换货*/
+    YYChangeGoodsTypeChangeGoods,
+    /**退款*/
+    YYChangeGoodsTypeReturnMoney,
+};
+
+typedef NS_ENUM(NSInteger, YYReturnChangeReasonType) {
+    YYReturnChangeReasonTypeNone,
+    /**不喜欢*/
+    YYReturnChangeReasonTypeNotLike,
+    /**质量差*/
+    YYReturnChangeReasonTypeLowQuality,
+    /**发错货*/
+    YYReturnChangeReasonTypeWorroyGoods,
+    /**描述不符*/
+    YYReturnChangeReasonTypeInconsistentWithDescription,
+    /**商品缺陷*/
+    YYReturnChangeReasonTypeGoodsDefect,
+    /**冒牌货*/
+    YYReturnChangeReasonTypeFake,
+    
+    
+};
+
+#endif /* PrefixHeader_pch */
